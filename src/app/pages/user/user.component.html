@@ -1,0 +1,137 @@
+<div class="container" *ngIf="!showForm">
+  <div class="clearfix def-addIcon-relative text-right ">
+    <button class="btn addBtnsNew" (click)="addUser()" >
+      <span matTooltip="Add Notes" matTooltipPosition="above">
+        <i class="fa fa-plus"></i>
+      </span>
+    </button>
+  </div>
+  <div class="clearfix clsDxDataGridTable clsDxtableHeading clsDxDataActionMenuTable">
+    <dx-data-grid
+      id="gridContainer"
+      [dataSource]="userList"
+      [showBorders]="true"
+      [rowAlternationEnabled]="true"
+      [showColumnLines]="true"
+      [showRowLines]="true"
+      [columnAutoWidth]="true"
+      [allowColumnReordering]="true"
+      [allowColumnResizing]="true">
+    
+      <!-- Export Options -->
+      <dxo-export [enabled]="true" [formats]="['pdf', 'xlsx', 'csv']"></dxo-export>
+    
+      <!-- Search & Filtering -->
+      <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+    
+      <!-- Pagination -->
+      <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+  
+    <dxi-column dataField="username" caption="User Name"></dxi-column>
+    <dxi-column dataField="useremail" caption="User Email"></dxi-column>
+    <dxi-column dataField="useraddress" caption="User Address"></dxi-column>
+    <dxi-column dataField="amount" caption="User Amount"></dxi-column>
+    <dxi-column dataField="userrole" caption="User Role"></dxi-column>
+  
+    <!-- Actions Column -->
+    <dxi-column caption="Actions" [width]="180" [alignment]="'center'">
+      <ng-template let-data="data" dxTemplate="cell">
+        <dx-button
+          text="Edit"
+          icon="edit"
+          stylingMode="contained"
+          type="default"
+          (onClick)="editUser(data.data)"
+        ></dx-button>
+   
+        <dx-button
+          text="Delete"
+          icon="trash"
+          stylingMode="contained"
+          type="danger"
+          (onClick)="deleteUser(data.data.id)"
+        ></dx-button>
+      </ng-template>
+    </dxi-column>
+  </dx-data-grid>
+  </div>
+  </div>
+  <div class="container" *ngIf="showForm">
+    <div class="card p-4 shadow-sm">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="row">
+          <div class="col-md-4">
+            <label for="companyname">Username<span class="text-danger">*</span></label>
+            <input type="text" id="username" formControlName="username" class="form-control" placeholder="Enter username" />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="ownername">User Mobile <span class="text-danger">*</span></label>
+            <input type="text" id="usermobile" formControlName="usermobile" class="form-control" placeholder="Enter User Mobile" />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="ownermobile"> User Email <span class="text-danger">*</span></label>
+            <input type="email" id="useremail" formControlName="useremail" class="form-control" placeholder="Enter User Email" />
+          </div>
+        </div>
+  
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <label for="owneremail">User Address <span class="text-danger">*</span></label>
+            <input type="text" id="useraddress" formControlName="useraddress" class="form-control" placeholder="Enter User Address" />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="owneraddress">User City<span class="text-danger">*</span></label>
+            <input type="text" id="usercity" formControlName="usercity" class="form-control" placeholder="Enter User City" />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="companycity">User State <span class="text-danger">*</span></label>
+            <input type="text" id="userstate" formControlName="userstate" class="form-control" placeholder="Enter User State" />
+          </div>
+        </div>
+  
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <label for="companystate">User County<span class="text-danger">*</span></label>
+            <input type="text" id="usercountry" formControlName="usercountry" class="form-control" placeholder="Enter User County" />
+          </div>
+  
+          <div class="col-md-4">
+            <label for="ownercountry">Pincode <span class="text-danger">*</span></label>
+            <input type="text" id="userpincode" formControlName="userpincode" class="form-control" placeholder="Enter Pin Code" />
+          </div>
+          <div class="col-md-4">
+            <label for="ownercountry">User Role <span class="text-danger">*</span></label>
+            <input type="text" id="role" formControlName="userrole" class="form-control" placeholder="Enter Role" />
+          </div>
+        </div>
+  <div class="row ">
+    <div class="col-md-4">
+        <label for="ownercountry"> Amount <span class="text-danger">*</span></label>
+        <input type="text" id="useramount" formControlName="userasaamount" class="form-control" placeholder="Enter User Amount" />
+      </div>
+      <div class="col-md-4">
+        <label for="ownercountry">Password <span class="text-danger">*</span></label>
+        <input type="text" id="password" formControlName="userpassword" class="form-control" placeholder="Enter Password" />
+      </div>
+      <div class="col-md-4">
+        <label for="ownercountry">Forgot password question<span class="text-danger">*</span></label>
+        <input type="text" id="forgotqestion" formControlName="userforgotpwquest" class="form-control" placeholder="Enter Forgot password question" />
+      </div>
+      <div class="col-md-4">
+        <label for="ownercountry">Forgot password question<span class="text-danger">*</span></label>
+        <input type="text" id="forgotanswer" formControlName="userforgotpwans" class="form-control" placeholder="Enter Forgot password question" />
+      </div>
+  </div>
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-success px-5">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>

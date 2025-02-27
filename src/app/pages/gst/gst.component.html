@@ -1,0 +1,105 @@
+<div class="container" *ngIf="!showForm">
+  <div class="clearfix def-addIcon-relative text-right">
+    <button class="btn addBtnsNew" (click)="addGst()">
+      <span matTooltip="Add GST" matTooltipPosition="above">
+        <i class="fa fa-plus"></i>
+      </span>
+    </button>
+  </div>
+  <div class="clearfix clsDxDataGridTable clsDxtableHeading clsDxDataActionMenuTable">
+    <dx-data-grid
+    id="gridContainer"
+    [dataSource]="gstList"
+    [showBorders]="true"
+    [rowAlternationEnabled]="true"
+    [showColumnLines]="true"
+    [showRowLines]="true"
+    [columnAutoWidth]="true"
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true">
+  
+    <!-- Export Options -->
+    <dxo-export [enabled]="true" [formats]="['pdf', 'xlsx', 'csv']"></dxo-export>
+  
+    <!-- Search & Filtering -->
+    <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+  
+    <!-- Pagination -->
+    <dxo-paging [pageSize]="5"></dxo-paging>
+      <dxi-column dataField="gstid" caption="GST ID"></dxi-column>
+      <dxi-column dataField="gstpercent" caption="GST %"></dxi-column>
+      <dxi-column dataField="igstpercent" caption="IGST %"></dxi-column>
+      <dxi-column dataField="cgstpercent" caption="CGST %"></dxi-column>
+      <dxi-column dataField="sgstpercent" caption="SGST %"></dxi-column>
+      <dxi-column dataField="ugstpercent" caption="UGST %"></dxi-column>
+      <dxi-column caption="Actions" alignment="center" [width]="150" cellTemplate="actionTemplate"></dxi-column>
+      <div *dxTemplate="let data of 'actionTemplate'" class="action-buttons">
+        <button class="icon-btn edit-btn"(click)="editGst(data)" title="Edit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"></path>
+            </svg>
+        </button>
+    
+        <button class="icon-btn delete-btn" (click)="deleteGst(data)" title="Delete">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18"></path>
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                <path d="m10 11 1 9"></path>
+                <path d="m14 11-1 9"></path>
+                <path d="M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14"></path>
+            </svg>
+        </button>
+    
+        <button class="icon-btn view-btn"  title="View">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12s-3.5 6-9 6-9-6-9-6 3.5-6 9-6 9 6 9 6Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        </button>
+    </div>
+    
+    </dx-data-grid>
+  </div>
+</div>
+
+<div class="container" *ngIf="showForm">
+  <div class="card p-4 shadow-sm">
+    <form [formGroup]="gstForm" (ngSubmit)="saveGst()">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="gstid">GST ID<span class="text-danger">*</span></label>
+          <input type="text" id="gstid" formControlName="gstid" class="form-control" placeholder="Enter GST ID" />
+        </div>
+        <div class="col-md-4">
+          <label for="gstpercent">GST %<span class="text-danger">*</span></label>
+          <input type="number" id="gstpercent" formControlName="gstpercent" class="form-control" placeholder="Enter GST %" />
+        </div>
+        <div class="col-md-4">
+          <label for="igstpercent">IGST %<span class="text-danger">*</span></label>
+          <input type="number" id="igstpercent" formControlName="igstpercent" class="form-control" placeholder="Enter IGST %" />
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label for="cgstpercent">CGST %<span class="text-danger">*</span></label>
+          <input type="number" id="cgstpercent" formControlName="cgstpercent" class="form-control" placeholder="Enter CGST %" />
+        </div>
+        <div class="col-md-4">
+          <label for="sgstpercent">SGST %<span class="text-danger">*</span></label>
+          <input type="number" id="sgstpercent" formControlName="sgstpercent" class="form-control" placeholder="Enter SGST %" />
+        </div>
+        <div class="col-md-4">
+          <label for="ugstpercent">UGST %<span class="text-danger">*</span></label>
+          <input type="number" id="ugstpercent" formControlName="ugstpercent" class="form-control" placeholder="Enter UGST %" />
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-success px-5">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+        <button type="button" class="btn btn-danger px-5 ml-2" (click)="cancelGstForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

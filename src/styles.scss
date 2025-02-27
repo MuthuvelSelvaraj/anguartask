@@ -1,0 +1,1064 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+.dx-overlay-content {
+    .dx-popup-content {
+        padding: 5px;
+  
+        .dx-checkbox-indeterminate {
+            .dx-checkbox-icon {
+                color: #0D3178;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+  
+                &::before {
+                    background-color: #0D3178;
+                    height: 2px;
+                    position: unset;
+                    margin: 0;
+                }
+            }
+        }
+  
+        .dx-checkbox-icon {
+            height: 20px;
+            width: 20px;
+            border: solid 1px #D8D8D8;
+            border-radius: 4px;
+  
+            &:focus {
+                border-color: #FBF6FD !important;
+                box-shadow: 0 0 0 10px #0084D1 !important;
+                border-radius: 2px;
+            }
+        }
+  
+        .dx-checkbox-container {
+            padding: 2px
+        }
+  
+        .dx-checkbox:focus-within .dx-checkbox-icon {
+            border-color: #FBF6FD !important;
+            box-shadow: 0 0 0 2px #0084D1 !important;
+            border-radius: 2px;
+        }
+  
+  
+        .dx-list.dx-list-select-decorator-enabled .dx-list-item.dx-state-hover .dx-checkbox-icon,
+        .dx-list.dx-list-select-decorator-enabled .dx-list-item.dx-state-focused .dx-checkbox-icon {
+            border: solid 1px #D8D8D8;
+            border-radius: 4px;
+            box-shadow: none;
+        }
+  
+        .dx-list.dx-list-select-decorator-enabled .dx-list-item.dx-state-hover .dx-checkbox-checked .dx-checkbox-icon,
+        .dx-list.dx-list-select-decorator-enabled .dx-list-item.dx-state-focused .dx-checkbox-checked .dx-checkbox-icon {
+            border: solid 1px #0D3178;
+        }
+  
+        .dx-list.dx-list-select-decorator-enabled .dx-list-select-all.dx-state-hover .dx-checkbox-icon,
+        .dx-list.dx-list-select-decorator-enabled .dx-list-select-all.dx-state-focused .dx-checkbox-icon {
+            border: solid 1px #D8D8D8;
+        }
+  
+        .dx-list.dx-list-select-decorator-enabled .dx-list-select-all.dx-state-hover .dx-checkbox-checked .dx-checkbox-icon,
+        .dx-list.dx-list-select-decorator-enabled .dx-list-select-all.dx-state-focused .dx-checkbox-checked .dx-checkbox-icon {
+            border: solid 1px #0D3178;
+        }
+  
+  
+        .dx-widget.dx-checkbox .dx-list-select-all-checkbox.dx-state-focused {
+            border-color: #FBF6FD !important;
+        }
+  
+        .dx-checkbox-checked {
+            .dx-checkbox-icon {
+                background-color: #0D3178;
+                border-color: #0D3178;
+                font-size: 14px;
+  
+                &::before {
+                    content: '\f00c';
+                    font-family: 'Font Awesome 6 Free';
+                    font-weight: 900;
+                    font-size: 13px;
+                    line-height: 19px;
+                    display: inline-block;
+                    position: unset;
+                    margin: 0;
+                    color: #fff;
+  
+                }
+            }
+        }
+    }
+  
+    .dx-toolbar {
+        .dx-toolbar-after {
+            .dx-toolbar-button:first-child {
+                .dx-button-mode-contained {
+                    background-color: #FBF6FD;
+                    color: #fff;
+                    border-radius: 0;
+                }
+            }
+  
+            .dx-toolbar-button:nth-child(2) {
+                .dx-button-mode-contained {
+                    background-color: #fff;
+                    border: 1px solid #EEEFF2;
+                    color: #FBF6FD;
+                    border-radius: 0;
+                }
+            }
+        }
+  
+        .dx-toolbar-before {
+            .dx-toolbar-button {
+                .dx-button-mode-contained {
+                    background-color: #FBF6FD;
+                    color: #fff;
+                }
+            }
+        }
+    }
+  }
+  
+  
+  .clsDxDataGridTable {
+    .dx-overlay-wrapper {
+        .dx-context-menu {
+            .dx-submenu {
+                background: #fff;
+                color: #000;
+            }
+        }
+  
+        .dx-menu-item {
+            color: #000;
+  
+            &.dx-menu-item-selected {
+                color: #fff;
+                background: #FBF6FD;
+  
+                i {
+                    color: #fff !important;
+                }
+            }
+  /* 
+            // &.dx-state-hover {
+            //   color: #000;
+            // } */
+  
+            .dx-icon {
+                color: #000 !important;
+            }
+        }
+    }
+  
+    .dx-calendar {
+        background: #fff;
+        color: #000;
+  
+        .dx-calendar-body {
+            .dx-calendar-views-wrapper {
+                border: 1px solid #EEEFF2;
+            }
+  
+            table {
+                thead {
+                    tr {
+                        th {
+                            color: #000;
+                        }
+                    }
+                }
+  
+                tbody {
+                    tr {
+  
+                        td,
+                        td.dx-calendar-cell {
+                            color: #000;
+  
+                            &.dx-calendar-today {
+                                background: #FBF6FD;
+                                color: #fff;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+  
+        .dx-button-mode-contained {
+            background-color: #fff;
+            color: #000;
+  
+            .dx-button-content {
+                color: #000 !important;
+  
+                .dx-icon {
+                    color: #000 !important;
+                }
+            }
+        }
+    }
+  
+    .dx-timeview {
+        .dx-widget {
+            .dx-item {
+                .dx-texteditor {
+                    &.dx-editor-outlined {
+                        background-color: #fff;
+                        border: 1px solid #EEEFF2;
+  
+                        .dx-texteditor-input {
+                            color: #000;
+                        }
+  
+                        .dx-texteditor-buttons-container {
+  
+                            .dx-numberbox-spin-up-icon,
+                            .dx-numberbox-spin-down-icon {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+  
+            .dx-item-content {
+                .dx-selectbox-container {
+                    .dx-texteditor-container {
+                        .dx-texteditor-buttons-container {
+                            .dx-dropdowneditor-button {
+                                .dx-button-content {
+                                    .dx-dropdowneditor-icon {
+                                        color: #000;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  
+    .dx-gridbase-container {
+        .dx-datagrid-rowsview {
+            border-left: solid 1px #EEEFF2 !important;
+            border-right: solid 1px #EEEFF2 !important;
+            border-bottom: solid 1px #EEEFF2 !important;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+  
+            &.dx-scrollable {
+                border: none;
+            }
+  
+            .dx-data-row {
+                &:not(:last-child) {
+                    border-bottom: solid 1px #EEEFF2;
+                }
+  
+                &:hover {
+                    box-shadow: 0px 4px 8px 0px #0C224B0F;
+                }
+            }
+        }
+    }
+  
+  
+    .dx-widget {
+        font-family: "Inter", sans-serif !important;
+        font-size: 14px !important;
+  
+        @media screen and (min-width: 560px) and (max-width: 800px) {
+            font-size: 13px !important;
+        }
+  
+        .dx-checkbox-text {
+            color: #000;
+        }
+    }
+  
+    .dx-treeview-node-container {
+        .dx-treeview-node {
+            .dx-treeview-toggle-item-visibility {
+                color: #000;
+            }
+  
+            .dx-treeview-item {
+                padding-top: 1px;
+  
+                &:hover {
+                    background-color: transparent !important;
+                }
+  
+                .dx-treeview-item-content {
+                    color: #000;
+                }
+            }
+        }
+    }
+  
+    .dx-treeview-expander-icon-stub {
+        display: none;
+    }
+  
+    .dx-datagrid-rowsview .dx-row.dx-row-lines:first-child,
+    .dx-datagrid-rowsview .dx-row.dx-row-lines:first-child>td,
+    .dx-datagrid-rowsview .dx-row.dx-row-lines:first-child>tr>td {
+        border-top: 0;
+    }
+  
+    /* // .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused).dx-row-lines>td {
+    //     border-bottom: solid 1px #EEEFF2;
+    // } */
+  
+  
+    .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused)>td {
+        background-color: #EAF1FF;
+        color: #031328;
+    }
+  
+    .dx-datagrid {
+  
+        &.dx-filter-menu {
+            .dx-menu-item-has-icon {
+                .dx-icon {
+                    font-size: 16px;
+                    color: #101010;
+                }
+            }
+        }
+  
+        .dx-datagrid-headers {
+            border: 1px solid #EEEFF2;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            overflow: hidden;
+  
+            .dx-header-row {
+                border-bottom: 1px solid #EEEFF2;
+  
+                td {
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    text-align: left !important;
+                    color: #4F6178;
+                    background: #F9FAFB;
+  
+                    .dx-header-filter {
+                        font-size: 11px;
+                        color: #4F6178;
+                    }
+  
+                    .dx-column-indicators {
+                        float: right !important;
+                    }
+  
+                    .dx-header-filter:before {
+                        font-size: 15px;
+                        font-family: 'Material Icons';
+                        content: "\eb32";
+                        color: #4F6178;
+                    }
+  
+                    .dx-header-filter-empty:before {
+                        font-size: 15px;
+                        color: #4F6178;
+                        content: "\ef4f";
+                    }
+                }
+            }
+        }
+  
+        .dx-row {
+            td {
+  
+                .dx-template-wrapper {
+                    a {
+                        color: #031328;
+                        cursor: pointer;
+                    }
+  
+                    white-space: pre-line;
+                }
+            }
+        }
+  
+        .dx-datagrid-filter-row {
+            .dx-menu {
+                margin: 0;
+            }
+  
+            .dx-menu-item-has-submenu {
+                &.dx-menu-item-expanded {
+                    background-color: #fff;
+  
+                    &.dx-state-hover {
+                        color:#ccc;
+                        background-color: #fff;
+                    }
+                }
+  
+                .dx-menu-item-content {
+                    padding: 8px;
+  
+                    .dx-icon {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+  
+        .dx-datagrid-columns-separator {
+            display: none !important;
+        }
+  
+        .dx-datagrid-pager {
+            padding: 15px 0;
+            background-color: #fff;
+            border: solid 1px #EEEFF2;
+            border-top: 0;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+  
+  
+            .dx-pages {
+                float: none;
+                text-align: center;
+  
+                .dx-page {
+                    width: 29px;
+                    height: 29px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #888888;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 10px;
+  
+                    &.dx-selection {
+                        background-color: #0D3178;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+  
+        .p-dropdown {
+            .p-dropdown-label {
+                font-size: 14px;
+                color: #72776e;
+            }
+        }
+  
+        .dx-focused {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+  
+        .dx-texteditor-input {
+            color: #000;
+            background-color: #fff;
+            color: #888888;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: left;
+  
+            @media screen and (min-width: 560px) and (max-width: 800px) {
+                font-size: 13px !important;
+            }
+        }
+  /* 
+        // .dx-toolbar {
+        //     background-color: #fff;
+        // } */
+  
+        .dx-widget {
+            color: #000 !important;
+            /* // background-color: #fff !important;
+            // border-color: #EEEFF2;
+            // background-color: transparent !important; */
+        }
+  
+        .dx-dropdowneditor {
+            &.dx-state-hover:not(.dx-custom-button-hovered) {
+                .dx-dropdowneditor-icon {
+                    color: #000;
+                    background-color: #fff;
+                }
+            }
+        }
+  
+        .dx-row-alt {
+            background-color: #fff;
+  
+            td {
+                background-color: transparent;
+            }
+        }
+  
+        .dx-column-lines {
+            td {
+                border: 0;
+                padding: 16px 16px;
+                vertical-align: middle;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 20px;
+                text-align: left;
+                color: #031328;
+  
+  
+                a {
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+  
+        .dx-dropdowneditor-button {
+            color: #000 !important;
+            background-color: #fff !important;
+            border-color: #EEEFF2;
+            border-radius: 0 !important;
+  
+            .dx-dropdowneditor-icon {
+                color: #000;
+            }
+        }
+  
+        .dx-editor-cell {
+            padding: 10px 16px !important;
+  
+            .dx-texteditor {
+                .dx-texteditor-input {
+                    background: #fff;
+                    color: #101010;
+                    border: solid 1px #D8D8D8;
+                    border-radius: 4px;
+                }
+            }
+        }
+  
+        .dx-toolbar-after {
+            display: flex;
+            flex-direction: row-reverse;
+  
+            .dx-button-content {
+                padding: 8px !important;
+                border-radius: 3px;
+                color: #fff;
+                background-color: #F9FAFB;
+  
+                .dx-icon {
+                    color: #4F6178;
+                }
+  
+                .dx-icon-spindown {
+                    display: none;
+                }
+            }
+  
+            .dx-toolbar-item {
+                padding: 0px 0px 0 7px;
+            }
+        }
+  
+        .dx-datagrid-search-panel {
+            margin: 0 0 0 5px;
+  
+            &.dx-state-focused.dx-editor-outlined,
+            &.dx-state-hover {
+                border-color: #D8D8D8;
+            }
+        }
+    }
+  
+    .dx-popup-wrapper {
+        .dx-overlay-content {
+            background: #fff !important;
+            border: solid 1px #EEEFF2;
+  
+            .dx-scrollview-content {
+                .dx-list-select-all-label {
+                    color: #000;
+                }
+  
+                .dx-empty-message {
+                    color: #000;
+                }
+  
+                .dx-list-select-all {
+                    display: flex;
+                    border-bottom: 1px solid #ddd;
+                    margin-bottom: 10px;
+                }
+  
+                .dx-list-item {
+                    border: none;
+                    margin-bottom: 8px;
+                }
+            }
+  
+            .dx-list-item-before-bag {
+  
+                .dx-list-select-checkbox,
+                .dx-list-select-radiobutton {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+  
+            .dx-popup-content {
+                padding: 5px;
+  
+                .dx-list-item-content {
+                    color: #000;
+                    padding: 4px 3px !important;
+  
+                    &:hover {
+                        background-color: #FBF6FD;
+                        color: #fff !important;
+  
+                        .dx-list-item-icon {
+                            color: #fff !important;
+                        }
+                    }
+  
+                    .dx-list-item-icon {
+                        color: #000 !important;
+                    }
+                }
+            }
+        }
+    }
+  
+    .dx-datagrid-header-panel .dx-toolbar {
+        margin: 5px 0 !important;
+    }
+  
+    .dx-datagrid-focus-overlay {
+        border: 0;
+    }
+  
+    .dx-datagrid-checkbox-size {
+        padding: 0;
+  
+        .dx-checkbox-icon {
+            height: 20px;
+            width: 20px;
+            border: solid 1px #D8D8D8;
+            border-radius: 4px;
+        }
+  
+        &.dx-checkbox-checked {
+            .dx-checkbox-icon {
+                background-color: #0D3178;
+                border-color: #0D3178;
+                font-size: 14px;
+  
+                &::before {
+                    content: '\f00c';
+                    font-family: 'Font Awesome 6 Free';
+                    font-weight: 900;
+                    font-size: 13px;
+                    line-height: 19px;
+                    display: inline-block;
+                    position: unset;
+                    margin: 0;
+                    color: #fff;
+  
+                }
+            }
+        }
+  
+        &.dx-checkbox-indeterminate {
+            .dx-checkbox-icon {
+                color: #0D3178;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+  
+                &::before {
+                    background-color: #0D3178;
+                    height: 2px;
+                    position: unset;
+                    margin: 0;
+                }
+            }
+        }
+    }
+  
+    &.clsDxDataBorderTable {
+        .dx-datagrid {
+            .dx-column-lines {
+                td {
+                    border-right: solid 1px #EEEFF2;
+  
+                    &:last-child {
+                        border: 0;
+                    }
+                }
+            }
+        }
+  
+    }
+  
+    &.clsDxDataZebraTable {
+        .dx-datagrid {
+            .dx-row-alt {
+                background-color: #F9FAFB;
+  
+                td {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+  
+    .clsHeading {
+        font-size: 18px;
+        margin-bottom: 0;
+        color: #101010 !important;
+        font-weight: 600;
+    }
+  
+    .clsDropdownMenuList {
+        .clsDropdownBtnMenuList {
+            svg {
+                path {
+                    stroke: #141B34;
+                }
+            }
+        }
+    }
+  
+    &.clsDxDataActionMenuTable {
+        .dx-datagrid {
+            .dx-datagrid-headers {
+                .dx-header-row {
+                    td {
+                        &:last-child {
+                            text-align: right !important;
+                        }
+  
+                        &.dx-command-select {
+                            text-align: center !important;
+                        }
+                    }
+                }
+            }
+  
+            .dx-column-lines {
+                td {
+                    &:last-child {
+                        overflow: visible;
+                    }
+                }
+            }
+        }
+    }
+  
+  
+    .clsTableActionIcons {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 4px;
+  
+        .clsActionBtn {
+            color: #101010;
+            background: #fff;
+            border: solid 1px #EEEFF2;
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            display: inline-flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+  
+            &.clsActionBtnDelete {
+  
+                .material-symbols-outlined,
+                .fa,
+                i {
+                    color: #F03D2B !important;
+                }
+  
+                svg {
+                    fill: #F03D2B;
+                }
+            }
+  
+            svg {
+                fill: #101010;
+                height: 12px;
+            }
+  
+            span {
+                display: inline-flex;
+            }
+  
+            .material-symbols-outlined {
+                font-size: 18px;
+                color: #101010 !important;
+                line-height: 18px;
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+  
+            i {
+                font-size: 16px;
+                color: #101010 !important;
+                line-height: 18px;
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+  
+    .clsTableUser {
+        display: flex;
+        align-items: center;
+  
+        .clsTableUserImg {
+            width: 36px;
+            height: 36px;
+            flex: 0 0 36px;
+            overflow: hidden;
+            border-radius: 999px;
+            margin-right: 10px;
+            background-color: #F5F5F5;
+  
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+  
+    .clsTableBtnGrp {
+        white-space: revert !important;
+  
+        .clsTableBtn {
+            padding: 9px 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: center;
+            text-decoration: none !important;
+             /* display: inline-block; */
+            display: block;
+  
+            &.clsPrimaryBtn {
+                background-color: #F2F6FF;
+                border: solid 1px #0D3178;
+                color: #0D3178 !important;
+            }
+  
+            &.clsWarningBtn {
+                background-color: #FFFBF5;
+                border: solid 1px #EA971D;
+                color: #EA971D !important;
+            }
+  
+            &.clsDangerBtn {
+                background-color: #FFF5F5;
+                border: solid 1px #E71D1D;
+                color: #E71D1D !important;
+            }
+  
+            &.clsSuccessBtn {
+                background-color: #F5FFFB;
+                border: solid 1px #20C274;
+                color: #20C274 !important;
+            }
+        }
+    }
+  
+  
+    &.clsDxtableHeading {
+        position: relative;
+  
+        .clsHeading {
+            position: absolute;
+            left: 5px;
+            z-index: 1;
+            padding: 0;
+            top: 10px;
+        }
+    }
+  
+    &.pos-relative-btn1 {
+        position: relative;
+  
+        .dx-datagrid {
+            .dx-toolbar-after {
+                position: absolute;
+                right: 41px;
+            }
+        }
+  
+        .clsHeading {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+        }
+  
+        .def-addIcon-align {
+            top: 7px;
+            position: absolute;
+            z-index: 1;
+            top: 7px;
+            right: 0px;
+  
+            .btn.btn-primary {
+                border-radius: 3px !important;
+            }
+        }
+  
+        .def-addIcon {
+            position: absolute;
+            z-index: 1;
+            top: 6px;
+            right: 0px;
+  
+            .btn.btn-primary {
+                border-radius: 3px !important;
+                padding: 0 !important;
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+  
+    &.pos-relative-btn2 {
+        position: relative;
+  
+        .dx-datagrid {
+            .dx-toolbar-after {
+                position: absolute;
+                right: 86px;
+            }
+        }
+  
+        .cldHeading {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+        }
+  
+        .def-addIcon {
+            position: absolute;
+            z-index: 1;
+            top: 6px;
+            right: 0px;
+  
+            .btn.btn-primary {
+                border-radius: 3px !important;
+                padding: 0 !important;
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+  
+    &.pos-relative-btn3 {
+        position: relative;
+  
+        .dx-datagrid {
+            .dx-toolbar-after {
+                position: absolute;
+                right: 130px;
+            }
+        }
+  
+        .clsHeading {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+        }
+  
+        .def-addIcon {
+            position: absolute;
+            z-index: 1;
+            top: 6px;
+            right: 0px;
+  
+            .btn.btn-primary {
+                border-radius: 3px !important;
+                padding: 0 !important;
+                width: 34px;
+                height: 34px;
+            }
+        }
+  
+        .def-addIcon1 {
+            position: absolute;
+            z-index: 1;
+            top: 0px;
+            right: 0px;
+  
+            .btn.btn-primary {
+                border-radius: 3px !important;
+            }
+        }
+    }
+  
+    .dx-datagrid-rowsview.dx-empty {
+        min-height: 120px;
+    }
+  
+    .dx-datagrid-nodata {
+         /* background: url("assets/images/wisconsin/no-data-img.png") no-repeat; */
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        background-size: 22%;
+        color: transparent;
+        font-size: 0;
+    }
+  
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  body.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body.dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  

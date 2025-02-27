@@ -1,0 +1,48 @@
+.pages-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-left: 260px; /* Adjust based on sidebar width */
+    padding: 20px;
+  }
+  
+  .header {
+    background: #243b55;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .pages-menu {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  .pages-menu a {
+    text-decoration: none;
+    color: #243b55;
+    font-weight: bold;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .pages-menu a:hover,
+  .pages-menu a.active {
+    background: #243b55;
+    color: white;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background: #f4f4f4;
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+  

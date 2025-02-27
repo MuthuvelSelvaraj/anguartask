@@ -1,0 +1,163 @@
+<div class="container" *ngIf="!showForm">
+    <div class="clearfix def-addIcon-relative text-right ">
+      <button class="btn addBtnsNew" (click)="addInstance()" >
+        <span matTooltip="Add Notes" matTooltipPosition="above">
+          <i class="fa fa-plus"></i>
+        </span>
+      </button>
+    </div>
+    <div class="clearfix clsDxDataGridTable clsDxtableHeading clsDxDataActionMenuTable">
+      <dx-data-grid
+      id="gridContainer"
+      [dataSource]="instanceList"
+      [showBorders]="true"
+      [rowAlternationEnabled]="true"
+      [showColumnLines]="true"
+      [showRowLines]="true"
+      [columnAutoWidth]="true"
+      [allowColumnReordering]="true"
+      [allowColumnResizing]="true">
+      <dxo-export [enabled]="true" [formats]="['pdf', 'xlsx', 'csv']"></dxo-export>
+      <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>    
+      <dxo-paging [pageSize]="5"></dxo-paging>
+        <dxi-column dataField="instancename" caption="Instance Name" cellTemplate="instanceTemplate"></dxi-column>
+        <dxi-column dataField="ownername" caption="Owner Name" cellTemplate="ownerTemplate"></dxi-column>
+        <dxi-column dataField="managername" caption="Manager Name" cellTemplate="managerTemplate"></dxi-column>
+        <dxi-column dataField="instancesalesamount" caption="Sales Amount" cellTemplate="salesamountTemplate"></dxi-column>
+        <dxi-column dataField="instancesalesdate" caption="Sales Date" cellTemplate="salesdateTemplate"></dxi-column>
+        <dxi-column dataField="instanceasaenddate" caption="ASA End Date" cellTemplate="enddateTemplate"></dxi-column>
+        <dxi-column dataField="instanceasaamount" caption="ASA Amount" cellTemplate="amountTemplate"></dxi-column>
+      <div *dxTemplate="let data of 'instanceTemplate'">
+        <span>{{data.data.instancename || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'ownerTemplate'">
+        <span>{{data.data.ownername || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'managerTemplate'">
+        <span>{{data.data.managername || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'salesamountTemplate'">
+        <span>{{data.data.instanceasaamount || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'salesdateTemplate'">
+        <span>{{data.data.instancesalesdate || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'enddateTemplate'">
+        <span>{{data.data.instanceasaenddate || 'N/A'}}</span>
+      </div>
+      <div *dxTemplate="let data of 'amountTemplate'">
+        <span>{{data.data.instanceasaamount || 'N/A'}}</span>
+      </div>
+      <dxi-column caption="Actions" alignment="center" [width]="150" cellTemplate="actionTemplate"></dxi-column>
+
+      <div *dxTemplate="let data of 'actionTemplate'" class="action-buttons">
+        <button class="icon-btn edit-btn" (click)="editInstance(data.data)" title="Edit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"></path>
+            </svg>
+        </button>
+    
+        <button class="icon-btn delete-btn" (click)="deleteInstance(data.data)" title="Delete">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18"></path>
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                <path d="m10 11 1 9"></path>
+                <path d="m14 11-1 9"></path>
+                <path d="M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14"></path>
+            </svg>
+        </button>
+    
+        <button class="icon-btn view-btn" (click)="viewinstance(data.data)"  title="View" [disabled]="showForm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12s-3.5 6-9 6-9-6-9-6 3.5-6 9-6 9 6 9 6Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        </button>
+    </div>
+
+      </dx-data-grid>
+      </div>
+    </div>
+  <div class="container" *ngIf="showForm">
+        <div class="card p-4 shadow-sm">
+          <form [formGroup]="instanceForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="companyname">Instance Name<span class="text-danger">*</span></label>
+                <input type="text" id="instancename" formControlName="instancename" class="form-control" placeholder="Enter Company Name" />
+              </div>
+      
+              <div class="col-md-4">
+                <label for="ownername">Owner Name <span class="text-danger">*</span></label>
+                <input type="text" id="ownername" formControlName="ownername" class="form-control" placeholder="Enter Owner Name" />
+              </div>
+      
+              <div class="col-md-4">
+                <label for="ownermobile">Owner Mobile <span class="text-danger">*</span></label>
+                <input type="text" id="ownermobile" formControlName="ownermobile" class="form-control" placeholder="Enter Owner Mobile Number" />
+              </div>
+              <div class="col-md-4">
+                <label for="ownermobile">Mnager Nmae <span class="text-danger">*</span></label>
+                <input type="text" id="managername" formControlName="managername" class="form-control" placeholder="Enter Manager Name" />
+              </div>
+            </div>
+      
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <label for="owneremail">Manager Mobile <span class="text-danger">*</span></label>
+                <input type="email" id="managermobile" formControlName="managermobile" class="form-control" placeholder="Enter Owner Email" />
+              </div>
+      
+              <div class="col-md-4">
+                <label for="owneraddress">Manager Email<span class="text-danger">*</span></label>
+                <input type="text" id="manageremail" formControlName="manageremail" class="form-control" placeholder="Enter Owner Address" />
+              </div>
+      
+              <div class="col-md-4">
+                <label for="companycity">Instance City <span class="text-danger">*</span></label>
+                <input type="text" id="instancecity" formControlName="instancecity" class="form-control" placeholder="Enter Company City" />
+              </div>
+            </div>
+      
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <label for="companystate">Instance State <span class="text-danger">*</span></label>
+                <input type="text" id="instancestate" formControlName="instancestate" class="form-control" placeholder="Enter Company State" />
+              </div>
+      
+              <div class="col-md-4">
+                <label for="ownercountry">Instance Country <span class="text-danger">*</span></label>
+                <input type="text" id="instancecountry" formControlName="instancecountry" class="form-control" placeholder="Enter Owner Country" />
+              </div>
+              <div class="col-md-4">
+                <label for="ownercountry">Instance Pin code <span class="text-danger">*</span></label>
+                <input type="text" id="instancepincode" formControlName="instancepincode" class="form-control" placeholder="Enter Owner Country" />
+              </div>
+            </div>
+      <div class="row ">
+        <div class="col-md-4">
+            <label for="ownercountry">Sales Amount <span class="text-danger">*</span></label>
+            <input type="text" id="instancesalesamount" formControlName="instancesalesamount" class="form-control" placeholder="Enter Owner Country" />
+          </div>
+          <div class="col-md-4">
+            <label for="ownercountry">Sales Date <span class="text-danger">*</span></label>
+            <input type="Date" id="instancesalesdate" formControlName="instancesalesdate" class="form-control" placeholder="Enter Sales Date" />
+          </div>
+          <div class="col-md-4">
+            <label for="ownercountry">ASA End Date <span class="text-danger">*</span></label>
+            <input type="Date" id="instanceasaenddate" formControlName="instanceasaenddate" class="form-control" placeholder="Enter End Date" />
+          </div>
+          <div class="col-md-4">
+            <label for="ownercountry">ASA End Amount <span class="text-danger">*</span></label>
+            <input type="text" id="instanceasaamount" formControlName="instanceasaamount" class="form-control" placeholder="Enter Owner Country" />
+          </div>
+      </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-success px-5">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+            </div>
+          </form>
+        </div>
+      </div>

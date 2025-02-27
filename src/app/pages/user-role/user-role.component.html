@@ -1,0 +1,161 @@
+<div class="container" *ngIf="!showForm">
+    <div class="clearfix def-addIcon-relative text-right ">
+      <button class="btn addBtnsNew" (click)="addUserRole()" >
+        <span matTooltip="Add Notes" matTooltipPosition="above">
+          <i class="fa fa-plus"></i>
+        </span>
+      </button>
+    </div>
+    <div class="clearfix clsDxDataGridTable clsDxtableHeading clsDxDataActionMenuTable">
+  
+        <dx-data-grid
+        id="gridContainer"
+        [dataSource]="UserRoleList"
+        [showBorders]="true"
+        [rowAlternationEnabled]="true"
+        [showColumnLines]="true"
+        [showRowLines]="true"
+        [columnAutoWidth]="true"
+        [allowColumnReordering]="true"
+        [allowColumnResizing]="true">
+      
+        <!-- Export Options -->
+        <dxo-export [enabled]="true" [formats]="['pdf', 'xlsx', 'csv']"></dxo-export>
+      
+        <!-- Search & Filtering -->
+        <dxo-search-panel [visible]="true" [highlightCaseSensitive]="false"></dxo-search-panel>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+      
+        <dxo-paging [pageSize]="5"></dxo-paging>
+      
+        <dxi-column caption="Company Name" cellTemplate="companyNameTemplate" dataField="companyname"></dxi-column>
+        <dxi-column caption="Owner Name" cellTemplate="ownerNameTemplate"  dataField="ownername"></dxi-column>
+        <dxi-column caption="Owner Mobile" cellTemplate="ownerMobileTemplate"  dataField="ownermobile"></dxi-column>
+        <dxi-column caption="Owner Email" cellTemplate="ownerEmailTemplate"  dataField="owneremail"></dxi-column>
+        <dxi-column caption="Company Address" cellTemplate="companyAddressTemplate"  dataField="companyaddress"></dxi-column>
+        <dxi-column caption="Company City" cellTemplate="companyCityTemplate"  dataField="companycity"></dxi-column>
+        <dxi-column caption="Company State" cellTemplate="companyStateTemplate"  dataField="companystate"></dxi-column>
+        <dxi-column caption="Company Country" cellTemplate="companyCountryTemplate"  dataField="companycountry"></dxi-column>
+      
+        <dxi-column caption="Actions" alignment="center" [width]="150" cellTemplate="actionTemplate"></dxi-column>
+      
+        <div *dxTemplate="let data of 'companyNameTemplate'">
+          <span>{{ data.data.companyname || 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'ownerNameTemplate'">
+          <span>{{ data.data.ownername || 'N/A'  }}</span>
+        </div>
+        <div *dxTemplate="let data of 'ownerMobileTemplate'">
+          <span>{{ data.data.ownermobile || 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'ownerEmailTemplate'">
+          <span>{{ data.data.owneremail || 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'companyAddressTemplate'">
+          <span>{{ data.data.companyaddress || 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'companyCityTemplate'">
+          <span>{{ data.data.companycity|| 'N/A'  }}</span>
+        </div>
+        <div *dxTemplate="let data of 'companyStateTemplate'">
+          <span>{{ data.data.companystate || 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'companyCountryTemplate'">
+          <span>{{ data.data.companycountry|| 'N/A'  }}</span>
+        </div>
+      
+        <div *dxTemplate="let data of 'actionTemplate'" class="action-buttons">
+          <button class="icon-btn edit-btn" (click)="editCompany(data.data)" title="Edit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"></path>
+              </svg>
+          </button>
+      
+          <button class="icon-btn delete-btn" (click)="deleteCompany(data.data)" title="Delete">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6h18"></path>
+                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  <path d="m10 11 1 9"></path>
+                  <path d="m14 11-1 9"></path>
+                  <path d="M4 6l1 14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-14"></path>
+              </svg>
+          </button>
+      
+          <button class="icon-btn view-btn" (click)="viewAccount(data.data)"  title="View" [disabled]="showForm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12s-3.5 6-9 6-9-6-9-6 3.5-6 9-6 9 6 9 6Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+          </button>
+      </div>
+      
+      
+      </dx-data-grid>
+      </div>
+    </div>
+    
+    <div class="container" *ngIf="showForm">
+      <div class="card p-4 shadow-sm">
+        <form [formGroup]="AccountForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="companyname">Company Name <span class="text-danger">*</span></label>
+              <input type="text" id="companyname" formControlName="companyname" class="form-control" placeholder="Enter Company Name" />
+            </div>
+    
+            <div class="col-md-4">
+              <label for="ownername">Owner Name <span class="text-danger">*</span></label>
+              <input type="text" id="ownername" formControlName="ownername" class="form-control" placeholder="Enter Owner Name" />
+            </div>
+    
+            <div class="col-md-4">
+              <label for="ownermobile">Owner Mobile <span class="text-danger">*</span></label>
+              <input type="text" id="ownermobile" formControlName="ownermobile" class="form-control" placeholder="Enter Owner Mobile Number" />
+            </div>
+          </div>
+    
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="owneremail">Owner Email <span class="text-danger">*</span></label>
+              <input type="email" id="owneremail" formControlName="owneremail" class="form-control" placeholder="Enter Owner Email" />
+            </div>
+    
+            <div class="col-md-4">
+              <label for="owneraddress">Company Address<span class="text-danger">*</span></label>
+              <input type="text" id="companyaddress" formControlName="companyaddress" class="form-control" placeholder="Enter Company Address" />
+            </div>
+    
+            <div class="col-md-4">
+              <label for="companycity">Company City <span class="text-danger">*</span></label>
+              <input type="text" id="companycity" formControlName="companycity" class="form-control" placeholder="Enter Company City" />
+            </div>
+          </div>
+    
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="companystate">Company State <span class="text-danger">*</span></label>
+              <input type="text" id="companystate" formControlName="companystate" class="form-control" placeholder="Enter Company State" />
+            </div>
+    
+            <div class="col-md-4">
+              <label for="ownercountry">Company Country <span class="text-danger">*</span></label>
+              <input type="text" id="companycountry" formControlName="companycountry" class="form-control" placeholder="Enter Company  Country" />
+            </div>
+          </div>
+    
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-5">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    
+    

@@ -1,0 +1,73 @@
+<div class="settings-container">
+  <h2>Settings</h2>
+
+  <!-- Profile Settings -->
+  <div class="settings-card">
+    <div class="card-header">
+      <i class="fas fa-user"></i>
+      <h3>Profile</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="profileName">Name</label>
+        <input type="text" id="profileName" placeholder="Enter your name" [(ngModel)]="profile.name">
+      </div>
+      <div class="form-group">
+        <label for="profileEmail">Email</label>
+        <input type="email" id="profileEmail" placeholder="Enter your email" [(ngModel)]="profile.email">
+      </div>
+      <div class="form-group">
+        <label for="profilePassword">Change Password</label>
+        <input type="password" id="profilePassword" placeholder="Enter new password" [(ngModel)]="profile.password">
+      </div>
+      <button class="save-btn" (click)="updateProfile()">Update Profile</button>
+    </div>
+  </div>
+
+  <!-- Theme Settings -->
+  <div class="settings-card">
+    <div class="card-header">
+      <i class="fas fa-palette"></i>
+      <h3>Theme</h3>
+    </div>
+    <div class="card-body">
+      <div class="theme-options">
+        <div class="theme-option">
+          <input type="radio" id="lightTheme" name="theme" value="light" [(ngModel)]="selectedTheme">
+          <label for="lightTheme" class="theme-label">
+            <i class="fas fa-sun"></i>
+            <span>Light Mode</span>
+          </label>
+        </div>
+        <div class="theme-option">
+          <input type="radio" id="darkTheme" name="theme" value="dark" [(ngModel)]="selectedTheme">
+          <label for="darkTheme" class="theme-label">
+            <i class="fas fa-moon"></i>
+            <span>Dark Mode</span>
+          </label>
+        </div>
+      </div>
+      <button class="save-btn" (click)="applyTheme()">Apply Theme</button>
+    </div>
+  </div>
+
+  <!-- Language Settings -->
+  <div class="settings-card">
+    <div class="card-header">
+      <i class="fas fa-globe"></i>
+      <h3>Language</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="languageSelect">Select Language</label>
+        <select id="languageSelect" [(ngModel)]="selectedLanguage">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+        </select>
+      </div>
+      <button class="save-btn" (click)="saveLanguage()">Save Language</button>
+    </div>
+  </div>
+</div>
